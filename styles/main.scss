@@ -1,0 +1,42 @@
+// colors
+$body-color: #656565;
+$body-bg: #ffffff;
+$success: #7952b3;
+$primary: #000000;
+$secondary: #ffffff;
+
+// fonts override
+$font-family-base: "Archivo", sans-serif;
+$h1-font-size: 2rem;
+$h5-font-size: 1.571rem;
+$h2-font-size: 2.714rem;
+
+$hr-border-color: #e4e4e4;
+$hr-border-width: 0.286rem;
+
+// btn
+$btn-padding-y: 0.3em;
+$btn-padding-x: 2em;
+$btn-white-space: nowrap;
+$btn-font-weight: 500;
+$btn-border-radius: 0;
+$btn-border-width: 3px;
+
+// border
+$border-radius: 0.4rem;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// 5. Add additional custom code here
+
+// Customize some defaults
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+);
