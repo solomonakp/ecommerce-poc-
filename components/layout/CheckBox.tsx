@@ -5,17 +5,24 @@ interface Props {
   id: string;
   value?: string;
   label: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const CheckBox = (props: Props) => {
-  const {id, value = "", label} = props;
+  const {id, value = "", onChange, label} = props;
 
   const {
     breakPoints: {minLg},
   } = useTheme();
   return (
     <div className="form-check mb-3  mb-lg-4">
-      <input className="form-check-input me-lg-3" type="checkbox" value={value} id={id} />
+      <input
+        className="form-check-input me-lg-3"
+        type="checkbox"
+        value={value}
+        id={id}
+        onChange={onChange}
+      />
       <label className="form-check-label" htmlFor={id}>
         {label}
       </label>

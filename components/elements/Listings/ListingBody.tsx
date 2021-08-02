@@ -2,13 +2,10 @@ import React from "react";
 import MobileFilter from "./MobileFilter";
 import ProductFilter from "./ProductFilter";
 import ProductStream from "./ProductStream";
-import {useSelector} from "react-redux";
-import {RootState} from "../../../redux/reducers/index";
+import useProducts from "../../../hooks/useProducts";
 
-interface Props {}
-
-const ListingBody = (props: Props) => {
-  const {products} = useSelector((state: RootState) => state.products);
+const ListingBody = () => {
+  const {mobileFilter, products} = useProducts();
   return (
     <div className="row">
       <div className="col-3 d-none d-lg-block">
@@ -19,7 +16,7 @@ const ListingBody = (props: Props) => {
         {/* cards */}
         {/* pagination */}
       </div>
-      <MobileFilter />
+      {mobileFilter && <MobileFilter />}
     </div>
   );
 };

@@ -1,13 +1,6 @@
 import React from "react";
-import useTheme from "../useTheme";
 
-interface CloseIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const CloseIcon = (props: CloseIconProps) => {
-  const {
-    breakPoints: {maxXs},
-  } = useTheme();
-
+const CloseIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="18"
@@ -16,6 +9,7 @@ const CloseIcon = (props: CloseIconProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="presentation"
+      {...props}
     >
       <path d="M2 2L20 20" stroke="black" strokeWidth="4" />
       <path d="M2 20L20 2" stroke="black" strokeWidth="4" />

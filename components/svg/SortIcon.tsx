@@ -1,8 +1,6 @@
 import React from "react";
 
-interface Props extends React.SVGProps<SVGSVGElement> {}
-
-const SortIcon = (props: Props) => {
+const SortIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="15"

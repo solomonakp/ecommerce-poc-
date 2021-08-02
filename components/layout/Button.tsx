@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
     colors: {primary, secondary, primaryLight, secondaryDark},
   } = useTheme();
   return (
-    <button className={className} id={id} {...props}>
+    <button className={className} id={id} role="button" type="button" {...props}>
       {children}
       <style jsx>{`
         button {

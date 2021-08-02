@@ -1,7 +1,6 @@
 import React, {ReactElement, useState} from "react";
 import Image from "next/image";
 import {toBase64, shimmer} from "../../../utilities/functions";
-import useTheme from "../../useTheme";
 import Button from "../../layout/Button";
 import {Product} from "../../../types/types";
 import {useDispatch} from "react-redux";
@@ -26,8 +25,6 @@ function ProductTile(props: Props): ReactElement {
   const [showButton, setShowButton] = useState<boolean>(false);
 
   const dispatch = useDispatch();
-
-  const {} = useTheme();
 
   const {products} = useCart();
 

@@ -2,14 +2,14 @@ import {
   ProductsTypes,
   productsState,
   SET_LOADING,
-  TOGGLE_OPEN,
+  TOGGLE_FILTER,
   SET_FEATURED_PRODUCT,
   SET_PRODUCTS,
 } from "./productsTypes";
 
 const initialState: productsState = {
   isLoading: false,
-
+  mobileFilter: false,
   featuredProduct: null,
   products: [],
 };
@@ -19,7 +19,7 @@ const productsReducer = (state = initialState, action: ProductsTypes) => {
     case SET_LOADING:
       return {
         ...state,
-        isLoading: !state.isLoading,
+        isLoading: action.payload,
       };
 
     case SET_FEATURED_PRODUCT:
@@ -31,6 +31,11 @@ const productsReducer = (state = initialState, action: ProductsTypes) => {
       return {
         ...state,
         products: action.payload,
+      };
+    case TOGGLE_FILTER:
+      return {
+        ...state,
+        mobileFilter: !state.mobileFilter,
       };
 
     default:

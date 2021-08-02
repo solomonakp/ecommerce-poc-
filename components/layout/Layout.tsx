@@ -16,7 +16,7 @@ export const Layout: React.FC = ({children}: LayoutProps) => {
   React.useEffect(() => {
     dispatch(getFeaturedProduct());
 
-    return () => {};
+    return;
   }, []);
 
   return (

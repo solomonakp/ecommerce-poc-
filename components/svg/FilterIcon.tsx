@@ -1,9 +1,7 @@
 import React from "react";
 import useTheme from "../useTheme";
 
-interface Props extends React.SVGProps<SVGSVGElement> {}
-
-const FilterIcon = (props: Props) => {
+const FilterIcon = (props: React.SVGProps<SVGSVGElement>) => {
   const {
     breakPoints: {maxXs},
   } = useTheme();

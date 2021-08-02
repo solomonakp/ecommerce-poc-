@@ -5,10 +5,11 @@ import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {getProducts} from "../redux/reducers/products/productsActions";
 
-const Index = (props) => {
+const Index = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProducts());
+    return;
   }, []);
 
   return (

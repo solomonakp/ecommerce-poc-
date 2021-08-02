@@ -3,23 +3,44 @@ import Button from "../../layout/Button";
 import ProductFilter from "./ProductFilter";
 import useTheme from "../../useTheme";
 import CloseIcon from "../../svg/CloseIcon";
+import {useDispatch} from "react-redux";
+import {toggleFilter} from "../../../redux/reducers/products/productsActions";
+import useOutsideClick from "../../../hooks/useOutsideClick";
+import useProducts from "../../../hooks/useProducts";
 
-interface Props {}
-
-const MobileFilter = (props: Props) => {
+const MobileFilter = () => {
   const {
     border: {cartBorder},
   } = useTheme();
 
+  const dispatch = useDispatch();
+
+  const {mobileFilter} = useProducts();
+
+  const filter = React.useRef<HTMLDivElement>(null);
+
+  useOutsideClick(filter, () => {
+    if (mobileFilter) {
+      dispatch(toggleFilter());
+    }
+  });
+
+  const handleFilterToggle = () => dispatch(toggleFilter());
+
   return (
     <div className="mobile-filter position-fixed d-lg-none">
-      <button className="bg-transparent border-0 d-lg-none close-btn position-absolute">
+      <button
+        className="bg-transparent border-0 d-lg-none close-btn position-absolute"
+        role="button"
+        type="button"
+        onClick={handleFilterToggle}
+      >
         <CloseIcon />
       </button>
 
       <div className="overlay position-fixed">
         <div className="overflow-container overflow-scroll position-absolute bg-secondary ">
-          <div className="pt-3 mx-5 ">
+          <div className="pt-3 mx-5 " ref={filter}>
             <ProductFilter isMobile={true} />
           </div>
         </div>
@@ -29,12 +50,14 @@ const MobileFilter = (props: Props) => {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <Button outline fullWidth className="me-auto">
+              <Button outline fullWidth className="me-auto" onClick={handleFilterToggle}>
                 Cancel
               </Button>
             </div>
             <div className="col-6">
-              <Button fullWidth>Save</Button>
+              <Button fullWidth onClick={handleFilterToggle}>
+                Save
+              </Button>
             </div>
           </div>
         </div>

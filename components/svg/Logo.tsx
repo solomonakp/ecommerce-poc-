@@ -1,9 +1,7 @@
 import React from "react";
 import useTheme from "../useTheme";
 
-interface LogoProps extends React.SVGProps<SVGSVGElement> {}
-
-const Logo = (props: LogoProps) => {
+const Logo = (props: React.SVGProps<SVGSVGElement>) => {
   const {
     breakPoints: {maxXs},
   } = useTheme();

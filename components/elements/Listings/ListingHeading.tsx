@@ -3,9 +3,7 @@ import React from "react";
 import useTheme from "../../useTheme";
 import Sort from "./Sort";
 
-interface Props {}
-
-export const ListingHeading = (props: Props) => {
+export const ListingHeading = () => {
   const {
     breakPoints: {maxXs},
   } = useTheme();

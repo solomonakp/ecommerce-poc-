@@ -11,9 +11,7 @@ import {setCartProduct, toggleOpen} from "../../redux/reducers/cart/cartActions"
 import useCart from "../../hooks/useCart";
 import {useDispatch} from "react-redux";
 
-interface Props {}
-
-const Header = (props: Props) => {
+const Header = () => {
   let unsubscribe = null;
 
   const dispatch = useDispatch();

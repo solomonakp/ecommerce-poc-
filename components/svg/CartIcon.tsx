@@ -1,9 +1,7 @@
 import React from "react";
 import useTheme from "../useTheme";
 
-interface CartIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const CartIcon = (props: CartIconProps) => {
+const CartIcon = (props: React.SVGProps<SVGSVGElement>) => {
   const {
     breakPoints: {maxXs},
   } = useTheme();

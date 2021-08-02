@@ -1,6 +1,6 @@
 import {Product, Products} from "../../../types/types";
 export const SET_LOADING = "TOGGLE_LOADING";
-export const TOGGLE_OPEN = "TOGGLE_OPEN";
+export const TOGGLE_FILTER = "TOGGLE_FILTER";
 export const SET_FEATURED_PRODUCT = "SET_FEATURED_PRODUCT";
 export const SET_PRODUCTS = "SET_PRODUCTS";
 
@@ -14,9 +14,9 @@ interface SetProducts {
   payload: Products;
 }
 
-// interface ToggleOpenAction {
-//   type: typeof TOGGLE_OPEN;
-// }
+interface ToggleFilter {
+  type: typeof TOGGLE_FILTER;
+}
 
 interface SetFeaturedProduct {
   type: typeof SET_FEATURED_PRODUCT;
@@ -25,9 +25,13 @@ interface SetFeaturedProduct {
 
 export interface productsState {
   isLoading: boolean;
-  // isOpen: boolean;
+  mobileFilter: boolean;
   featuredProduct: null | Product;
   products: [] | Products;
 }
 
-export type ProductsTypes = ToggleLoadingAction | SetFeaturedProduct | SetProducts;
+export type ProductsTypes =
+  | ToggleLoadingAction
+  | SetFeaturedProduct
+  | SetProducts
+  | ToggleFilter;
