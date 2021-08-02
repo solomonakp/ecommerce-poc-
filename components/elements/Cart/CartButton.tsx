@@ -1,5 +1,5 @@
 import React from "react";
-import CartIcon from "../../../svg/CartIcon";
+import CartIcon from "../../svg/CartIcon";
 
 interface Props {
   onClick: () => void;
@@ -18,9 +18,11 @@ const CartButtton = (props: Props) => {
       >
         {" "}
         <CartIcon />
-        <span className="counter bg-primary text-secondary position-absolute d-flex justify-content-center align-items-center">
-          {quantity}
-        </span>
+        {quantity > 0 ? (
+          <span className="counter bg-primary text-secondary position-absolute d-flex justify-content-center align-items-center">
+            {quantity}
+          </span>
+        ) : null}
       </button>
       <style jsx>{`
         button {

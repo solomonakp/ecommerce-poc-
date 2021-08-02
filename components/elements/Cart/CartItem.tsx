@@ -1,28 +1,42 @@
 import React from "react";
 import Image from "next/image";
+import {toBase64, shimmer} from "../../../utilities/functions";
+import {Product} from "../../../types/types";
 
-interface Props {}
+interface Props {
+  item: Product;
+}
 
 const CartItem = (props: Props) => {
+  const {
+    item: {
+      name,
+      price,
+      image: {src, alt},
+    },
+  } = props;
+
   return (
     <div className="w-100 container">
       <div className="row">
         <div className="col-7 text-container">
           <p className="text-primary m-0">
-            <strong>Samurai King Resting</strong>
+            <strong>{name}</strong>
           </p>
           <div className="w-100 amount">
             <span>&#36;</span>
-            10000.00
+            {price}
           </div>
         </div>
         <div className="col-5 d-flex align-items-center">
           <Image
-            src="/img/thumbnail.png"
-            alt="Picture of the author"
+            src={src}
+            alt={alt}
             width={140}
             height={77}
             layout="intrinsic"
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(140, 77))}`}
           />
         </div>
       </div>

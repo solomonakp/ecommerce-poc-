@@ -1,6 +1,3 @@
-import {useSelector} from "react-redux";
-import {RootState} from "../redux/reducers/index";
-
 interface Theme {
   colors: {
     primary: string;
@@ -47,8 +44,6 @@ interface Theme {
 }
 
 const useTheme = () => {
-  const dark = useSelector((state: RootState) => state.ui.isDark);
-
   const theme: Theme = {
     colors: {
       primary: "#000000",

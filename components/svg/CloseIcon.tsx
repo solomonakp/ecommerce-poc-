@@ -17,8 +17,8 @@ const CloseIcon = (props: CloseIconProps) => {
       xmlns="http://www.w3.org/2000/svg"
       role="presentation"
     >
-      <path d="M2 2L20 20" stroke="black" stroke-width="4" />
-      <path d="M2 20L20 2" stroke="black" stroke-width="4" />
+      <path d="M2 2L20 20" stroke="black" strokeWidth="4" />
+      <path d="M2 20L20 2" stroke="black" strokeWidth="4" />
     </svg>
   );
 };

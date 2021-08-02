@@ -1,15 +1,13 @@
 import React from "react";
 import useTheme from "../useTheme";
 
-type colors = "primary" | "secondary" | "inherit" | "light" | "dark";
-
 interface ButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
   outline?: boolean;
-  bgColor?: colors;
+  bgColor?: string;
   id?: string;
   fullWidth?: boolean;
   className?: string;
@@ -31,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       {children}
       <style jsx>{`
         button {
+          white-space: nowrap;
           letter-spacing: 0.07em;
           text-align: center;
           padding: 0.3em 2em;

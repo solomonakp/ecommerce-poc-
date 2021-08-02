@@ -1,20 +1,28 @@
 import React from "react";
-import CloseIcon from "../../../svg/CloseIcon";
+import CloseIcon from "../../svg/CloseIcon";
 import CartItem from "./CartItem";
-import useTheme from "../../../useTheme";
-import Button from "../../../layout/Button";
+import useTheme from "../../useTheme";
+import Button from "../../layout/Button";
+import {Products} from "../../../types/types";
+import {useDispatch} from "react-redux";
+import {clearCart} from "../../../redux/reducers/cart/cartActions";
 
 interface Props {
   close: () => void;
+  items: Products;
 }
 
 const Cart = (props: Props) => {
-  const {close} = props;
+  const {close, items} = props;
+
+  const dispatch = useDispatch();
 
   const {
     border: {cartBorder},
     breakPoints: {maxXs},
   } = useTheme();
+
+  const handleClear = () => dispatch(clearCart());
 
   return (
     <div className="position-absolute cart-details bg-secondary">
@@ -24,10 +32,12 @@ const Cart = (props: Props) => {
         </button>
       </div>
       <div className="cart-items">
-        <CartItem />
+        {items.map((product, index) => {
+          return <CartItem item={product} key={index} />;
+        })}
       </div>
       <hr className="mx-2" />
-      <Button outline fullWidth>
+      <Button outline fullWidth onClick={handleClear}>
         clear
       </Button>
 

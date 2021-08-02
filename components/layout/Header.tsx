@@ -2,20 +2,43 @@ import React from "react";
 import Link from "next/link";
 import Logo from "../svg/Logo";
 import useTheme from "../useTheme";
-import CartButton from "../elements/Listings/Cart/CartButton";
-import Cart from "../elements/Listings/Cart/Cart";
+import CartButton from "../elements/Cart/CartButton";
+import Cart from "../elements/Cart/Cart";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import {cartDb} from "../../firebase/utilities";
+import {Product} from "../../types/types";
+import {setCartProduct, toggleOpen} from "../../redux/reducers/cart/cartActions";
+import useCart from "../../hooks/useCart";
+import {useDispatch} from "react-redux";
+
 interface Props {}
 
 const Header = (props: Props) => {
+  let unsubscribe = null;
+
+  const dispatch = useDispatch();
+
   const header = React.useRef<HTMLElement>(null);
 
-  const [showingCart, toggleShowingCart] = React.useState<boolean>(false);
+  const {products, isOpen} = useCart();
 
-  const handleToggleShowing = () => toggleShowingCart(!showingCart);
+  const handleToggleShowing = () => dispatch(toggleOpen());
+
+  React.useEffect(() => {
+    unsubscribe = cartDb.onSnapshot((cartSnapshot) => {
+      const products = cartSnapshot.docs.map((prod) => {
+        return {id: prod.id, ...(prod.data() as Product)};
+      });
+
+      dispatch(setCartProduct(products));
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   useOutsideClick(header, () => {
-    if (showingCart) {
+    if (isOpen) {
       handleToggleShowing();
     }
   });
@@ -34,8 +57,8 @@ const Header = (props: Props) => {
         </Link>
 
         <div className="cart-container">
-          <CartButton onClick={handleToggleShowing} quantity={1} />
-          {showingCart && <Cart close={handleToggleShowing} />}
+          <CartButton onClick={handleToggleShowing} quantity={products.length} />
+          {isOpen && <Cart close={handleToggleShowing} items={products} />}
         </div>
       </nav>
       <style jsx>{`
