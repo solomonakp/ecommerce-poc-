@@ -13,11 +13,12 @@ const CartItem = (props: Props) => {
       name,
       price,
       image: {src, alt},
+      id,
     },
   } = props;
 
   return (
-    <div className="w-100 container">
+    <div className="w-100 container mb-1">
       <div className="row">
         <div className="col-7 text-container">
           <p className="text-primary m-0">
@@ -30,7 +31,7 @@ const CartItem = (props: Props) => {
         </div>
         <div className="col-5 d-flex align-items-center">
           <Image
-            src={src}
+            src={src + `${id + "1"}/140/177`}
             alt={alt}
             width={140}
             height={77}

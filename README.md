@@ -1,34 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-Commerce Proof of Concept
+
+An E-commerce of proof concept to show the basic functionalities of an E-commerce site.
+
+![screenshot](./public/screenshot.PNG)
+
+This E-Commerce prototype was created using Nextjs and a React Application at its core. It backend is written with Firestore and the application is very much Dynamic.The application allows its user to accomplish some of the basic e-commerce functionalities. This application is performant and accessibility compliant.
+
+&nbsp;
+
+## Built With
+
+- JavaScript, TypeScript, React,Next.js
+- Hooks, Redux, Redux thunk,
+- Sass, styles JSX, bootstrap.
+- Firestore.
+
+&nbsp;
+
+## Live Demo
+
+[Live Demo Link](https://radio-widget-three.vercel.app/)
+
+&nbsp;
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running follow these simple example steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run this project, you will need to have `node`,`npm` or `yarn`, `TypeScript` already installed locally
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Setup
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+`cd into the directory with command line terminal`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Install
 
-## Learn More
+run `npm install` or `yarn install` to install all the dependencies of the project
 
-To learn more about Next.js, take a look at the following resources:
+### Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+run `npm start` or `yarn start` to get the project running
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+open browser and navigate to `http://localhost:3000/`
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- ✔️ Featured Product
+- ✔️ Product List,
+- ✔️ Add to Cart
+- ✔️ Sorting
+- ✔️ Filtering
+- ✔️ Web performant
+- ✔️ API implementation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Customizations
+
+The styles are written using SASS and styled JSX, some components have custom styles written in them with Styles Jsx.
+
+To tweak react components navigate to `/components`
+
+To theme component global styles navigate to `/components/useTheme.tsx`
+
+To access global bootstrap styles navigate to `/styles/main.scss`
+
+&nbsp;
+
+## Deployment
+
+run `npm build` or `yarn build` to generate build folder. You can now serve the build folder on any static server. for more information visit [https://nextjs.org/docs/deployment](https://nextjs.org/docs/deployment).
+
+&nbsp;
+
+## Authors
+
+👤 **Author**
+
+- Github: [solomonakp](https://github.com/solomonakp)
+- twitter: [@dev_chuck](https://twitter.com/dev_chuck)
+
+&nbsp;
+
+&nbsp;
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.

@@ -1,4 +1,3 @@
-import React from "react";
 import ProductTile from "./ProductTile";
 import {Products} from "../../../types/types";
 

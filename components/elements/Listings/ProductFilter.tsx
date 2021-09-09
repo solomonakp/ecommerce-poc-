@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef, ChangeEvent} from "react";
 import {getFilteredProducts} from "../../../redux/reducers/products/productsActions";
 import CheckBox from "../../layout/CheckBox";
 import RadioButton from "../../layout/RadioButton";
@@ -19,7 +19,7 @@ const ProductFilter = (props: FilterProps) => {
 
   const isMounted = useRef<boolean>(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     const inCategories = categories.find((category) => category === value);
@@ -33,7 +33,7 @@ const ProductFilter = (props: FilterProps) => {
     }
   };
 
-  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePriceChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPrice(e.target.value);
     return;
   };

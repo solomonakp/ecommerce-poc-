@@ -1,8 +1,8 @@
-import React from "react";
 import MobileFilter from "./MobileFilter";
 import ProductFilter from "./ProductFilter";
 import ProductStream from "./ProductStream";
 import useProducts from "../../../hooks/useProducts";
+import Pagination from "./Pagination";
 
 const ListingBody = () => {
   const {mobileFilter, products} = useProducts();
@@ -13,8 +13,7 @@ const ListingBody = () => {
       </div>
       <div className="col-12 col-lg-9">
         <ProductStream products={products} />
-        {/* cards */}
-        {/* pagination */}
+        <Pagination />
       </div>
       {mobileFilter && <MobileFilter />}
     </div>

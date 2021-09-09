@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import useTheme from "../../useTheme";
 import Sort from "./Sort";
 

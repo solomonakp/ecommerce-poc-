@@ -4,13 +4,20 @@ import Image from "next/image";
 import useTheme from "../../useTheme";
 import {toBase64, shimmer, formatBytes} from "../../../utilities/functions";
 import {Product, Recommendation} from "../../../types/types";
+import {useDispatch} from "react-redux";
+import {addToCart, removeFromCart} from "../../../redux/reducers/cart/cartActions";
+import useCart from "../../../hooks/useCart";
 
 interface Props {
   product: Product;
 }
 
 const PhotoOfTheDay = (props: Props) => {
+  const dispatch = useDispatch();
+
   const {product} = props;
+
+  const {products} = useCart();
 
   const {
     name,
@@ -21,10 +28,18 @@ const PhotoOfTheDay = (props: Props) => {
       size,
     },
     image: {alt, src},
+    id,
   } = product;
   const {
     breakPoints: {maxXs},
   } = useTheme();
+
+  const handleAddToCart = () => dispatch(addToCart(product));
+  const handleRemoveFromCart = () => dispatch(removeFromCart(id));
+
+  const inCart = products.find((productInCart) => {
+    return id === productInCart.id;
+  });
 
   return (
     <section id="product-of-the-day" className="my-5">
@@ -36,12 +51,14 @@ const PhotoOfTheDay = (props: Props) => {
             </header>
           </div>
           <div className="col-12 col-lg-auto d-none d-lg-block">
-            <Button>Add To Cart</Button>
+            <Button onClick={inCart ? handleRemoveFromCart : handleAddToCart}>
+              {inCart ? "Remove" : "Add to Cart"}
+            </Button>
           </div>
         </div>
         <div className="image-container position-relative w-100 mb-2 mb-lg-0">
           <Image
-            src={src}
+            src={src + `${id}/1295/553`}
             alt={alt}
             layout="intrinsic"
             placeholder="blur"
@@ -56,8 +73,13 @@ const PhotoOfTheDay = (props: Props) => {
             Photo of the day
           </div>
         </div>
-        <Button fullWidth className="d-lg-none">
-          Add To Cart
+
+        <Button
+          fullWidth
+          className="d-lg-none"
+          onClick={inCart ? handleRemoveFromCart : handleAddToCart}
+        >
+          {inCart ? "Remove" : "Add to Cart"}
         </Button>
 
         <div className="photo-details w-100  mt-4">
@@ -131,7 +153,7 @@ const RecImgs = (props: RecImg) => {
         return (
           <div className="col-sm-auto col-4" key={index}>
             <Image
-              src={src}
+              src={src + `${index + 100}/117/147`}
               alt={alt}
               layout="intrinsic"
               placeholder="blur"

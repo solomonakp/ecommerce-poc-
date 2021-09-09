@@ -1,4 +1,3 @@
-import React from "react";
 import CloseIcon from "../../svg/CloseIcon";
 import CartItem from "./CartItem";
 import useTheme from "../../useTheme";

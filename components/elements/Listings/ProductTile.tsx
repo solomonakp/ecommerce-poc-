@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from "react";
+import {ReactElement, useState} from "react";
 import Image from "next/image";
 import {toBase64, shimmer} from "../../../utilities/functions";
 import Button from "../../layout/Button";
@@ -42,7 +42,7 @@ function ProductTile(props: Props): ReactElement {
             onMouseEnter={() => setShowButton(true)}
           >
             <Image
-              src={src}
+              src={src + `${id}/281/390`}
               alt={alt}
               layout="responsive"
               objectFit="cover"
